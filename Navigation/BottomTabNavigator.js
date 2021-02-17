@@ -2,7 +2,7 @@ import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import BookingDetails from "../views/BookingDetails";
 import RateJourney from "../views/RateJourney";
-import ProfileScreen from "../views/ProfileScreen";
+import Profile from "../views/Profile";
 import home from "../views/Home";
 import { Icon } from "react-native-elements";
 
@@ -19,6 +19,8 @@ const BottomNavigator = () => {
             iconName = "home";
           } else if (route.name === "Bookings") {
             iconName = "book";
+          }else if (route.name === "Time Table") {
+            iconName = "history";
           } else if (route.name === "Profile") {
             iconName = "face";
           }
@@ -33,8 +35,9 @@ const BottomNavigator = () => {
       }}
     >
       <Tab.Screen name="Home" component={home} />
+      <Tab.Screen name="Time Table" component={RateJourney} />
       <Tab.Screen name="Bookings" component={RateJourney} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 };

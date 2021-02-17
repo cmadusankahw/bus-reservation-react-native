@@ -10,6 +10,7 @@ import {
   Text,
   Linking,
 } from "react-native";
+import { Icon } from "react-native-elements";
 
 import {
   DrawerContentScrollView,
@@ -18,14 +19,14 @@ import {
 } from "@react-navigation/drawer";
 
 const CustomSidebarMenu = (props) => {
-  const starImagePath =
-    "https://raw.githubusercontent.com/AboutReact/sampleresource/master/star_filled.png";
 
   const proifleImagePath =
     "https://avatars.githubusercontent.com/u/44913467?s=460&u=2c1f1087edeaddc815c86576213e04e793aaf2a2&v=4";
-
   const rateURL = "";
   const aboutURL = "";
+  const userName = "Chiran";
+
+  const signOut = () => {}
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -34,22 +35,36 @@ const CustomSidebarMenu = (props) => {
         source={{ uri: proifleImagePath }}
         style={styles.sideMenuProfileIcon}
       />
+      <Text style={styles.userName}>{userName}</Text>
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
-        <DrawerItem
-          label="About BuzzBus"
-          onPress={() => Linking.openURL(aboutURL)}
-        />
+
         <View style={styles.customItem}>
+        <Icon name="star" />
           <Text
             onPress={() => {
               Linking.openURL(rateURL);
             }}
           >
-            Rate BuzzBus
+            {'         Rate BuzzBus'}
           </Text>
-          <Image source={{ uri: starImagePath }} style={styles.iconStyle} />
         </View>
+
+        <View style={styles.customItem}>
+          <Text
+            onPress={() => {
+              signOut
+            }}
+          >
+            Log out
+          </Text>
+        </View>
+
+        <DrawerItem
+          label="About BuzzBus"
+          onPress={() => Linking.openURL(aboutURL)}
+        />
+       
       </DrawerContentScrollView>
     </SafeAreaView>
   );
@@ -63,7 +78,13 @@ const styles = StyleSheet.create({
     borderColor: "rgb(33,33,33)",
     borderRadius: 999,
     alignSelf: "center",
-    marginVertical: 25,
+    marginTop: 25,
+    marginBottom:5
+  },
+  userName: {
+    marginBottom:20,
+    textAlign:"center",
+    fontSize:18
   },
   iconStyle: {
     width: 15,

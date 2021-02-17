@@ -54,7 +54,7 @@ class CustomButton extends Component {
   }
 }
 
-export default class ProfileScreen extends Component {
+export default class Profile extends Component {
   render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
