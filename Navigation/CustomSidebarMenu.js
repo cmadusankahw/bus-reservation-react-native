@@ -20,11 +20,14 @@ import {
 
 const CustomSidebarMenu = (props) => {
 
-  const proifleImagePath =
-    "https://avatars.githubusercontent.com/u/44913467?s=460&u=2c1f1087edeaddc815c86576213e04e793aaf2a2&v=4";
-  const rateURL = "";
+  // fetched
+  const user = {
+    userId: 'U01',
+    firstName: 'Chiran',
+    profilePic: "https://avatars.githubusercontent.com/u/44913467?s=460&u=2c1f1087edeaddc815c86576213e04e793aaf2a2&v=4",
+  }
+
   const aboutURL = "";
-  const userName = "Chiran";
 
   const signOut = () => {}
 
@@ -32,23 +35,12 @@ const CustomSidebarMenu = (props) => {
     <SafeAreaView style={{ flex: 1 }}>
       {/*Top Large Image */}
       <Image
-        source={{ uri: proifleImagePath }}
+        source={{ uri: user.profilePic }}
         style={styles.sideMenuProfileIcon}
       />
-      <Text style={styles.userName}>{userName}</Text>
+      <Text style={styles.userName}>{user.firstName}</Text>
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
-
-        <View style={styles.customItem}>
-        <Icon name="star" />
-          <Text
-            onPress={() => {
-              Linking.openURL(rateURL);
-            }}
-          >
-            {'         Rate BuzzBus'}
-          </Text>
-        </View>
 
         <View style={styles.customItem}>
           <Text

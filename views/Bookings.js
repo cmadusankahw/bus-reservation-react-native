@@ -13,7 +13,7 @@ import { Button, Icon } from "react-native-elements";
 
 import FocusAwareStatusBar from "../Navigation/FocusAwareStatusBar";
 
-const LoyalityPoints = ({navigation}) => {
+const Bookings = ({navigation}) => {
 
      // fetched
   const loyalityPoints = {
@@ -38,13 +38,13 @@ const LoyalityPoints = ({navigation}) => {
              
             />    
        </TouchableOpacity>   
-       <Text style={styles.headerText}> Loyality Points </Text>                                                              
+       <Text style={styles.headerText}> Book a Bus </Text>                                                              
          </View>
     
             <View style={{ flex: 1 }}>
             <FocusAwareStatusBar barStyle="light-content" hidden={false} />
 
-                
+                <Text> You can book a bus here</Text>
 
             </View>
 
@@ -100,11 +100,6 @@ const styles = StyleSheet.create({
       color: "white",
       textAlign: "center",
     },
-    nameHeader: {
-      color: "white",
-      fontSize: 22,
-      textAlign: "center",
-    },
   });
 
-export default LoyalityPoints;
+export default Bookings;

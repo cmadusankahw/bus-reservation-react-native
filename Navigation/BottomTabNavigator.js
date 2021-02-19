@@ -5,6 +5,8 @@ import RateJourney from "../views/RateJourney";
 import Profile from "../views/Profile";
 import home from "../views/Home";
 import { Icon } from "react-native-elements";
+import TimeTable from "../views/TimeTable";
+import Bookings from "../views/Bookings";
 
 const Tab = createBottomTabNavigator();
 
@@ -35,8 +37,8 @@ const BottomNavigator = () => {
       }}
     >
       <Tab.Screen name="Home" component={home} />
-      <Tab.Screen name="Time Table" component={RateJourney} />
-      <Tab.Screen name="Bookings" component={RateJourney} />
+      <Tab.Screen name="Time Table" component={TimeTable} />
+      <Tab.Screen name="Bookings" component={Bookings} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );

@@ -7,72 +7,57 @@ import {
   Image,
   ScrollView,
   Dimensions,
-  StatusBar,
+  TouchableOpacity,
 } from "react-native";
-import { Button } from "react-native-elements";
+import { Button, Icon } from "react-native-elements";
 
-const SCREEN_WIDTH = Dimensions.get("window").width;
+import FocusAwareStatusBar from "../Navigation/FocusAwareStatusBar";
 
-const IMAGE_SIZE = SCREEN_WIDTH - 80;
 
-class CustomButton extends Component {
-  constructor(props) {
-    super(props);
+const Profile = ({ navigation }) => {
 
-    this.state = {
-      selected: props.selected || false,
-    };
+  // fetched
+  const user = {
+    userId: 'U01',
+    firstName: 'Chiran',
+    lastName: 'Madushanka',
+    NIC: '9645467V',
+    mobileNo: '0772345678',
+    email: 'cmadusankahw@gmail.com',
+    profilePic: "https://avatars.githubusercontent.com/u/44913467?s=460&u=2c1f1087edeaddc815c86576213e04e793aaf2a2&v=4",
   }
 
-  render() {
-    const { title } = this.props;
-    const { selected } = this.state;
+  const SCREEN_WIDTH = Dimensions.get("window").width;
 
-    return (
-      <Button
-        title={title}
-        titleStyle={{ fontSize: 15, color: "white", fontFamily: "regular" }}
-        buttonStyle={
-          selected
-            ? {
-                backgroundColor: "rgba(213, 100, 140, 1)",
-                borderRadius: 100,
-                width: 127,
-              }
-            : {
-                borderWidth: 1,
-                borderColor: "white",
-                borderRadius: 30,
-                width: 127,
-                backgroundColor: "transparent",
-              }
-        }
-        containerStyle={{ marginRight: 10 }}
-        onPress={() => this.setState({ selected: !selected })}
-      />
-    );
-  }
-}
-
-export default class Profile extends Component {
-  render() {
     return (
       <SafeAreaView style={{ flex: 1 }}>
-        <StatusBar barStyle="light-content" />
-        <View style={{ flex: 1, backgroundColor: "rgba(47,44,60,1)" }}>
+    
+    {/* header */}
+    <View style={styles.floatingView} >   
+    <TouchableOpacity style={styles.icon} onPress={() => navigation.openDrawer()} >                                
+        <Icon                              
+          name='menu'
+          size={30}      
+          color='#ffffff'                                      
+         
+        />    
+   </TouchableOpacity>   
+   <Text style={styles.headerText}> Profile </Text>                                                              
+     </View>
+
+        <View style={{ flex: 1 }}>
+        <FocusAwareStatusBar barStyle="light-content" hidden={false} />
           <View style={styles.statusBar} />
           <ScrollView style={{ flex: 1 }}>
             <View style={{ justifyContent: "center", alignItems: "center" }}>
               <Image
                 source={{
                   uri:
-                    "https://static.pexels.com/photos/428336/pexels-photo-428336.jpeg",
+                    user.profilePic,
                 }}
-                style={{
-                  width: IMAGE_SIZE,
-                  height: IMAGE_SIZE,
-                  borderRadius: 10,
-                }}
+                style={
+                 styles.profileIcon
+                }
               />
             </View>
             <View
@@ -80,7 +65,6 @@ export default class Profile extends Component {
                 flex: 1,
                 flexDirection: "row",
                 marginTop: 20,
-                marginHorizontal: 40,
                 justifyContent: "center",
                 alignItems: "center",
               }}
@@ -89,198 +73,118 @@ export default class Profile extends Component {
                 style={{
                   flex: 1,
                   fontSize: 26,
-                  color: "white",
-                  fontFamily: "bold",
+                  color: "#007acc",
+                  fontWeight: "bold",
+                  textAlign:"center"
                 }}
               >
-                Theresa
-              </Text>
-              <Text
-                style={{
-                  flex: 0.5,
-                  fontSize: 15,
-                  color: "gray",
-                  textAlign: "left",
-                  marginTop: 5,
-                }}
-              >
-                0.8 mi
-              </Text>
-              <Text
-                style={{
-                  flex: 1,
-                  fontSize: 26,
-                  color: "green",
-                  fontFamily: "bold",
-                  textAlign: "right",
-                }}
-              >
-                84%
+                {user.firstName + ' ' + user.lastName}
               </Text>
             </View>
-            <View
-              style={{
-                flex: 1,
-                marginTop: 20,
-                width: SCREEN_WIDTH - 80,
-                marginLeft: 40,
-              }}
-            >
-              <Text
-                style={{
-                  flex: 1,
-                  fontSize: 15,
-                  color: "white",
-                  fontFamily: "regular",
-                }}
-              >
-                100% Italian, fun loving, affectionate, young lady who knows
-                what it takes to make a relationship work.
-              </Text>
-            </View>
+
             <View style={{ flex: 1, marginTop: 30 }}>
               <Text
                 style={{
                   flex: 1,
-                  fontSize: 15,
+                  fontSize: 18,
                   color: "rgba(216, 121, 112, 1)",
-                  fontFamily: "regular",
-                  marginLeft: 40,
+                  marginLeft: 50,
+                  fontWeight: "bold",
                 }}
               >
-                INTERESTS
-              </Text>
-              <View style={{ flex: 1, width: SCREEN_WIDTH, marginTop: 20 }}>
-                <ScrollView
-                  style={{ flex: 1 }}
-                  horizontal
-                  showsHorizontalScrollIndicator={false}
-                >
-                  <View
-                    style={{
-                      flex: 1,
-                      flexDirection: "column",
-                      height: 170,
-                      marginLeft: 40,
-                      marginRight: 10,
-                    }}
-                  >
-                    <View style={{ flex: 1, flexDirection: "row" }}>
-                      <CustomButton title="Philosophy" selected={true} />
-                      <CustomButton title="Sport" />
-                      <CustomButton title="Swimming" selected={true} />
-                      <CustomButton title="Religion" />
-                    </View>
-                    <View style={{ flex: 1, flexDirection: "row" }}>
-                      <CustomButton title="Music" />
-                      <CustomButton title="Soccer" selected={true} />
-                      <CustomButton title="Radiohead" selected={true} />
-                      <CustomButton title="Micheal Jackson" />
-                    </View>
-                    <View style={{ flex: 1, flexDirection: "row" }}>
-                      <CustomButton title="Travelling" selected={true} />
-                      <CustomButton title="Rock'n'Roll" />
-                      <CustomButton title="Dogs" selected={true} />
-                      <CustomButton title="France" selected={true} />
-                    </View>
-                  </View>
-                </ScrollView>
-              </View>
-            </View>
-            <View style={{ flex: 1, marginTop: 30 }}>
-              <Text
-                style={{
-                  flex: 1,
-                  fontSize: 15,
-                  color: "rgba(216, 121, 112, 1)",
-                  fontFamily: "regular",
-                  marginLeft: 40,
-                }}
-              >
-                INFO
+                Profile Info
               </Text>
               <View
                 style={{
                   flex: 1,
                   flexDirection: "row",
                   marginTop: 20,
-                  marginHorizontal: 30,
+                  marginHorizontal: 15,
                 }}
               >
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <View style={{ flex: 1 }}>
-                    <Text style={styles.infoTypeLabel}>Age</Text>
-                    <Text style={styles.infoTypeLabel}>Height</Text>
-                    <Text style={styles.infoTypeLabel}>Ethnicity</Text>
-                    <Text style={styles.infoTypeLabel}>Sign</Text>
-                    <Text style={styles.infoTypeLabel}>Religion</Text>
+                  <View style={{ flex: 2 }}>
+                    <Text style={styles.infoTypeLabel}>First Name</Text>
+                    <Text style={styles.infoTypeLabel}>Last Name</Text>
+                    <Text style={styles.infoTypeLabel}>NIC</Text>
+                    <Text style={styles.infoTypeLabel}>Mobile No</Text>
+                    <Text style={styles.infoTypeLabel}>Email</Text>
                   </View>
-                  <View style={{ flex: 1, marginLeft: 10 }}>
-                    <Text style={styles.infoAnswerLabel}>26</Text>
-                    <Text style={styles.infoAnswerLabel}>5'4"</Text>
-                    <Text style={styles.infoAnswerLabel}>White</Text>
-                    <Text style={styles.infoAnswerLabel}>Pisces</Text>
-                    <Text style={styles.infoAnswerLabel}>Catholic</Text>
-                  </View>
-                </View>
-                <View style={{ flex: 1, flexDirection: "row" }}>
-                  <View style={{ flex: 1 }}>
-                    <Text style={styles.infoTypeLabel}>Body Type</Text>
-                    <Text style={styles.infoTypeLabel}>Diet</Text>
-                    <Text style={styles.infoTypeLabel}>Smoke</Text>
-                    <Text style={styles.infoTypeLabel}>Drink</Text>
-                    <Text style={styles.infoTypeLabel}>Drugs</Text>
-                  </View>
-                  <View style={{ flex: 1, marginLeft: 10, marginRight: -20 }}>
-                    <Text style={styles.infoAnswerLabel}>Fit</Text>
-                    <Text style={styles.infoAnswerLabel}>Vegan</Text>
-                    <Text style={styles.infoAnswerLabel}>No</Text>
-                    <Text style={styles.infoAnswerLabel}>No</Text>
-                    <Text style={styles.infoAnswerLabel}>Never</Text>
+                  <View style={{ flex: 3, marginLeft: 20 }}>
+                    <Text style={styles.infoAnswerLabel}>{user.firstName}</Text>
+                    <Text style={styles.infoAnswerLabel}>{user.lastName}</Text>
+                    <Text style={styles.infoAnswerLabel}>{user.NIC}</Text>
+                    <Text style={styles.infoAnswerLabel}>{user.mobileNo}</Text>
+                    <Text style={styles.infoAnswerLabel}>{user.email}</Text>
                   </View>
                 </View>
-              </View>
             </View>
+            <View style={{ flex: 1, alignItems:"center", marginTop: 20 }}>
             <Button
-              containerStyle={{ marginVertical: 20 }}
+              containerStyle={{ textAlign:"center" }}
               style={{
-                flex: 1,
                 justifyContent: "center",
                 alignItems: "center",
               }}
-              buttonStyle={{
-                height: 55,
-                width: SCREEN_WIDTH - 40,
-                borderRadius: 30,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              title="Message Theresa"
-              titleStyle={{
-                fontFamily: "regular",
-                fontSize: 20,
-                color: "white",
-                textAlign: "center",
-              }}
-              onPress={() => console.log("Message Theresa")}
+              buttonStyle={styles.button}
+              title="Edit Profile"
+              titleStyle={styles.buttonTitle}
+              onPress={() => console.log("clicked")}
               activeOpacity={0.5}
             />
+            </View>
           </ScrollView>
         </View>
       </SafeAreaView>
     );
   }
-}
 
 const styles = StyleSheet.create({
   statusBar: {
     height: 10,
   },
-  navBar: {
-    height: 60,
-    width: SCREEN_WIDTH,
+  floatingView: {
+    width: Dimensions.get('window').width,  
+    height: 60,   
+    borderRadius: 5,            
+    backgroundColor: '#71D3E7',                                    
+    position: 'relative',   
+    alignContent:'center',                                       
+    top: 0,                                                    
+    left: 0, 
+  },
+  icon: {
+    left: -(Dimensions.get('window').width/2 - 30) ,
+    top: 15,
+  },
+  headerText: {
+    left: 55,
+    fontSize: 20,
+    fontWeight: "bold",
+    top:-15,
+    color: "#ffffff"
+  },
+  profileIcon: {
+    resizeMode: "center",
+    width: 120,
+    height: 120,
+    borderColor: "rgb(33,33,33)",
+    borderRadius: 999,
+    alignSelf: "center",
+    marginTop: 25,
+    marginBottom:5
+  },
+  button: {
+    height: 40,
+    width: 180,
+    borderRadius: 30,
     justifyContent: "center",
-    alignContent: "center",
+    alignItems: "center",
+    backgroundColor: "#71C3E7",
+  },
+  buttonTitle: {
+    fontSize: 14,
+    color: "white",
+    textAlign: "center",
   },
   nameHeader: {
     color: "white",
@@ -288,16 +192,16 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   infoTypeLabel: {
-    fontSize: 15,
+    fontSize: 17,
     textAlign: "right",
     color: "rgba(126,123,138,1)",
-    fontFamily: "regular",
     paddingBottom: 10,
   },
   infoAnswerLabel: {
-    fontSize: 15,
-    color: "white",
-    fontFamily: "regular",
+    fontSize: 17,
+    color: "#007acc",
     paddingBottom: 10,
   },
 });
+
+export default Profile;

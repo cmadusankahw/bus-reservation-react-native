@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text,  StyleSheet, TouchableOpacity, Image, SafeAreaView, Dimensions } from "react-native";
-import { Icon } from "react-native-elements";
+import { Button,Icon } from "react-native-elements";
 
 import FocusAwareStatusBar from "../Navigation/FocusAwareStatusBar";
 
@@ -29,35 +29,61 @@ const Home = ({ navigation }) => {
       <FocusAwareStatusBar barStyle="light-content" hidden={false} />
       <Text  style={styles.titleText} >Welcome to BuzzBus!</Text>
       </View>
-      <SafeAreaView style={{ flex: 2, alignItems:"center" }}>
+      <SafeAreaView style={{ flex: 6, alignItems:"center" }}>
       <Image
         source={{ uri: logoPath }}
         style={styles.logoImage}
       />
        </SafeAreaView>
-      <View style={{ flex: 3, alignItems:"center" }}>
-      <TouchableOpacity  style={styles.button} onPress={() => alert("Button Clicked!")} >
-       <Text  style={styles.text}>
-       Start your Journey
-         </Text> 
-      </TouchableOpacity>
-      </View>
+        <View style={{flex: 5}}>
+         <View style={{ alignItems:"center", marginTop: 20 }}>
+            <Button
+              containerStyle={{ textAlign:"center" }}
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              buttonStyle={styles.button}
+              title="Start your Journey"
+              titleStyle={styles.buttonTitle}
+              onPress={() => console.log("clicked")}
+              activeOpacity={0.5}
+            />
+            </View>
 
-      <View style={{ flex: 4, alignItems:"center" }}>
-      <TouchableOpacity  style={styles.button} onPress={() => alert("Button Clicked!")} >
-       <Text  style={styles.text}>
-       Check time table
-         </Text> 
-      </TouchableOpacity>
-      </View>
+            <View style={{  alignItems:"center", marginTop: 20 }}>
+            <Button
+              containerStyle={{ textAlign:"center" }}
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              buttonStyle={styles.button}
+              title="View Time Table"
+              titleStyle={styles.buttonTitle}
+              onPress={() => console.log("clicked")}
+              activeOpacity={0.5}
+            />
+            </View>
 
-      <View style={{ flex: 20, alignItems:"center" }}>
-      <TouchableOpacity  style={styles.buttonRed} onPress={() => alert("Button Clicked!")} >
-       <Text  style={styles.text}>
-       Cancel a Booking
-         </Text> 
-      </TouchableOpacity>
-      </View>
+
+            <View style={{  alignItems:"center", marginTop: 20 }}>
+            <Button
+              containerStyle={{ textAlign:"center" }}
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              buttonStyle={styles.buttonRed}
+              title="Cancel a Booking"
+              titleStyle={styles.buttonTitle}
+              onPress={() => console.log("clicked")}
+              activeOpacity={0.5}
+            />
+            </View>
+
+            </View>
+    
     </>
   );
 };
@@ -103,22 +129,25 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   button: {
-    borderRadius: 25,
-    padding: 10,
-    position: "absolute",
-    top: 320,
-    backgroundColor: "#71D3E7",
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#71C3E7",
     height: 40,
     width: 300,
   },
+  buttonTitle: {
+    fontSize: 14,
+    color: "white",
+    textAlign: "center",
+  },
   buttonRed: {
-    borderRadius: 25,
-    padding: 10,
-    position: "absolute",
-    top: 320,
-    backgroundColor: "#ff6666",
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
     height: 40,
     width: 300,
+    backgroundColor: "#ff6666",
   },
   text: {
     fontSize: 15,

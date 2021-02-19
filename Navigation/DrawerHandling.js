@@ -6,6 +6,11 @@ import BookingDetails from "../views/BookingDetails";
 import ProfileScreen from "../views/Profile";
 import CustomSidebarMenu from "./CustomSidebarMenu";
 import BottomNavigator from "./BottomTabNavigator";
+import LoyalityPoints from "../views/LoyalityPoints";
+import Bookings from "../views/Bookings";
+import Cancellation from "../views/Cancellation";
+import TimeTable from "../views/TimeTable";
+import RateJourney from "../views/RateJourney";
 
 const Drawer = createDrawerNavigator();
 
@@ -28,7 +33,7 @@ const DrawerScreen = ({ navigation }) => (
       />
         <Drawer.Screen
         name="Time Table"
-        component={BookingDetails}
+        component={TimeTable}
         options={{
           drawerIcon: ({ focused, size }) => <Icon name="history" />,
         }}
@@ -36,7 +41,7 @@ const DrawerScreen = ({ navigation }) => (
 
         <Drawer.Screen
         name="Booking"
-        component={BookingDetails}
+        component={Bookings}
         options={{
           drawerIcon: ({ focused, size }) => <Icon name="book" />,
         }}
@@ -44,7 +49,7 @@ const DrawerScreen = ({ navigation }) => (
 
       <Drawer.Screen
         name="Cancellation"
-        component={BookingDetails}
+        component={Cancellation}
         options={{
           drawerIcon: ({ focused, size }) => <Icon name="clear" />,
         }}
@@ -52,7 +57,7 @@ const DrawerScreen = ({ navigation }) => (
 
       <Drawer.Screen
         name="Loyality Points"
-        component={BookingDetails}
+        component={LoyalityPoints}
         options={{
           drawerIcon: ({ focused, size }) => <Icon name="code" />,
         }}
@@ -64,6 +69,14 @@ const DrawerScreen = ({ navigation }) => (
         component={ProfileScreen}
         options={{
           drawerIcon: ({ focused, size }) => <Icon name="face" />,
+        }}
+      />
+
+      <Drawer.Screen
+        name="Rate BuzzBus"
+        component={RateJourney}
+        options={{
+          drawerIcon: ({ focused, size }) => <Icon name="star" />,
         }}
       />
     
