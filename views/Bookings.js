@@ -79,7 +79,7 @@ const Bookings = ({ navigation }) => {
         <ScrollView>
           {busRoutes?.map((route, i) => {
             return (
-              <Card>
+              <Card key={i}>
                 <Card.Title>
                   <View
                     style={{
@@ -127,7 +127,7 @@ const Bookings = ({ navigation }) => {
                         buttonStyle={styles.button}
                         title="Book Now"
                         titleStyle={styles.buttonTitle}
-                        onPress={() => console.log("clicked")}
+                        onPress={() => navigation.navigate("BookingInfo")}
                         activeOpacity={0.5}
                       />
                     </View>

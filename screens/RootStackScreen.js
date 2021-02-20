@@ -7,9 +7,10 @@ import RolleSelectionScreen from "./RolleSelectionScreen";
 import verificationScreen from "./verificationScreen";
 import ConductorSignupScreen from "./ConductorSignupScreen";
 import DrawerScreen from "../Navigation/DrawerHandling";
-import SeatBookingScreen from "./SeatBookingScreen";
-import BookingDetails from "../views/BookingDetails";
 import BottomNavigator from "../Navigation/BottomTabNavigator";
+import BookingInfo from "../views/BookingInfo";
+import Bookings from "../views/Bookings";
+import SeatBooking from "../views/SeatBooking";
 
 const RootStack = createStackNavigator();
 const RootStackScreen = ({ navigation }) => (
@@ -31,8 +32,6 @@ const RootStackScreen = ({ navigation }) => (
     />
     <RootStack.Screen name="home" component={DrawerScreen} />
     <RootStack.Screen name="BottomNavigation" component={BottomNavigator} />
-    <RootStack.Screen name="SeatBookingScreen" component={SeatBookingScreen} />
-    <RootStack.Screen name="BookingDetails" component={BookingDetails} />
   </RootStack.Navigator>
 );
 

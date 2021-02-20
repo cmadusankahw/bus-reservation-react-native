@@ -2,7 +2,6 @@ import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Icon } from "react-native-elements";
 
-import BookingDetails from "../views/BookingDetails";
 import ProfileScreen from "../views/Profile";
 import CustomSidebarMenu from "./CustomSidebarMenu";
 import BottomNavigator from "./BottomTabNavigator";
@@ -31,7 +30,7 @@ const DrawerScreen = ({ navigation }) => (
           drawerIcon: ({ focused, size }) => <Icon name="home" />,
         }}
       />
-        <Drawer.Screen
+      <Drawer.Screen
         name="Time Table"
         component={TimeTable}
         options={{
@@ -39,7 +38,7 @@ const DrawerScreen = ({ navigation }) => (
         }}
       />
 
-        <Drawer.Screen
+      <Drawer.Screen
         name="Booking"
         component={Bookings}
         options={{
@@ -63,7 +62,6 @@ const DrawerScreen = ({ navigation }) => (
         }}
       />
 
-
       <Drawer.Screen
         name="Profile"
         component={ProfileScreen}
@@ -79,7 +77,6 @@ const DrawerScreen = ({ navigation }) => (
           drawerIcon: ({ focused, size }) => <Icon name="star" />,
         }}
       />
-    
     </Drawer.Navigator>
   </>
 );

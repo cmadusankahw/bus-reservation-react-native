@@ -23,7 +23,6 @@ const Cancellation = ({ navigation }) => {
       from: "Colombo",
       to: "Matara",
       routeNo: "R1",
-      busNo: "NB2346",
     },
     {
       bookingId: "B1",
@@ -31,7 +30,6 @@ const Cancellation = ({ navigation }) => {
       from: "Colombo",
       to: "Galle",
       routeNo: "R1",
-      busNo: "NB2346",
     },
     {
       bookingId: "B1",
@@ -39,7 +37,6 @@ const Cancellation = ({ navigation }) => {
       from: "Colombo",
       to: "Badulla",
       routeNo: "R3",
-      busNo: "NB2334",
     },
   ];
 
