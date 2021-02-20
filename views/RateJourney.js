@@ -9,143 +9,140 @@ import {
   ScrollView,
   FlatList,
   Button,
+  Dimensions,
 } from "react-native";
+import { Icon } from "react-native-elements";
 
-export default class RateJourney extends Component {
-  constructor(props) {
-    super(props);
-  }
+import FocusAwareStatusBar from "../Navigation/FocusAwareStatusBar";
 
-  clickEventListener() {
-    Alert.alert("Success", "Product has beed added to cart");
-  }
+const RateJourney = ({ navigation }) => {
+  const SCREEN_WIDTH = Dimensions.get("window").width;
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <ScrollView>
-          <View style={{ alignItems: "center", marginHorizontal: 30 }}>
-            <Image
-              style={styles.productImg}
-              source={{
-                uri:
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3v7KDJN7TAoJa5sFaPWcp1HX8JFcpF3z5K3ngz4L6kWoEP7Ca",
-              }}
-            />
-            <Text style={styles.name}>Super Soft T-Shirt</Text>
-            <Text style={styles.price}>$ 12.22</Text>
-            <Text style={styles.description}>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-              penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              Donec quam felis, ultricies nec
-            </Text>
-          </View>
-          <View style={styles.starContainer}>
-            <Image
-              style={styles.star}
-              source={{
-                uri: "https://img.icons8.com/color/40/000000/star.png",
-              }}
-            />
-            <Image
-              style={styles.star}
-              source={{
-                uri: "https://img.icons8.com/color/40/000000/star.png",
-              }}
-            />
-            <Image
-              style={styles.star}
-              source={{
-                uri: "https://img.icons8.com/color/40/000000/star.png",
-              }}
-            />
-            <Image
-              style={styles.star}
-              source={{
-                uri: "https://img.icons8.com/color/40/000000/star.png",
-              }}
-            />
-            <Image
-              style={styles.star}
-              source={{
-                uri: "https://img.icons8.com/color/40/000000/star.png",
-              }}
-            />
-          </View>
-          <View style={styles.contentColors}>
-            <TouchableOpacity
-              style={[styles.btnColor, { backgroundColor: "#00BFFF" }]}
-            ></TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.btnColor, { backgroundColor: "#FF1493" }]}
-            ></TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.btnColor, { backgroundColor: "#00CED1" }]}
-            ></TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.btnColor, { backgroundColor: "#228B22" }]}
-            ></TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.btnColor, { backgroundColor: "#20B2AA" }]}
-            ></TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.btnColor, { backgroundColor: "#FF4500" }]}
-            ></TouchableOpacity>
-          </View>
-          <View style={styles.contentSize}>
-            <TouchableOpacity style={styles.btnSize}>
-              <Text>S</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.btnSize}>
-              <Text>M</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.btnSize}>
-              <Text>L</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.btnSize}>
-              <Text>XL</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.separator}></View>
-          <View style={styles.addToCarContainer}>
-            <TouchableOpacity
-              style={styles.shareButton}
-              onPress={() => this.clickEventListener()}
-            >
-              <Text style={styles.shareButtonText}>Add To Cart</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
+  return (
+    <View style={styles.container}>
+      {/* header */}
+      <View style={styles.floatingView}>
+        <TouchableOpacity
+          style={styles.icon}
+          onPress={() => navigation.openDrawer()}
+        >
+          <Icon name="menu" size={30} color="#ffffff" />
+        </TouchableOpacity>
+        <Text style={styles.headerText}> Rate BuzzBus </Text>
       </View>
-    );
-  }
-}
+      <ScrollView>
+        <View style={{ alignItems: "center", marginHorizontal: 30 }}>
+          <Image
+            style={styles.productImg}
+            source={require("../assets/logo.png")}
+          />
+          <Text style={styles.name}>How was BuzzBus??</Text>
+          <Text style={styles.description}>
+            We value your thoughts. Share your Experience with BuzzBus! Help us
+            grow!
+          </Text>
+        </View>
+        <View style={styles.starContainer}>
+          <Image
+            style={styles.star}
+            source={{
+              uri: "https://img.icons8.com/color/40/000000/star.png",
+            }}
+          />
+          <Image
+            style={styles.star}
+            source={{
+              uri: "https://img.icons8.com/color/40/000000/star.png",
+            }}
+          />
+          <Image
+            style={styles.star}
+            source={{
+              uri: "https://img.icons8.com/color/40/000000/star.png",
+            }}
+          />
+          <Image
+            style={styles.star}
+            source={{
+              uri: "https://img.icons8.com/color/40/000000/star.png",
+            }}
+          />
+          <Image
+            style={styles.star}
+            source={{
+              uri: "https://img.icons8.com/color/40/000000/star.png",
+            }}
+          />
+        </View>
+
+        <View style={styles.contentSize}>
+          <TouchableOpacity style={styles.btnSize}>
+            <Text>😟</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnSize}>
+            <Text>😶</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnSize}>
+            <Text>🙂</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.btnSize}>
+            <Text>😃</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.separator}></View>
+        <View style={styles.addToCarContainer}>
+          <TouchableOpacity style={styles.shareButton}>
+            <Text style={styles.shareButtonText}>Rate BuzzBus!</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
+  statusBar: {
+    height: 10,
+  },
+  floatingView: {
+    width: Dimensions.get("window").width,
+    height: 60,
+    borderRadius: 5,
+    backgroundColor: "#71D3E7",
+    position: "relative",
+    alignContent: "center",
+    top: 0,
+    left: 0,
+  },
+  icon: {
+    left: -(Dimensions.get("window").width / 2 - 30),
+    top: 15,
+  },
+  headerText: {
+    left: 55,
+    fontSize: 20,
+    fontWeight: "bold",
+    top: -15,
+    color: "#ffffff",
+  },
   container: {
     flex: 1,
-    marginTop: 20,
   },
   productImg: {
-    width: 200,
-    height: 200,
+    width: 240,
+    height: 240,
   },
   name: {
     fontSize: 28,
     color: "#696969",
     fontWeight: "bold",
   },
-  price: {
-    marginTop: 10,
-    fontSize: 18,
-    color: "green",
-    fontWeight: "bold",
-  },
   description: {
     textAlign: "center",
     marginTop: 10,
     color: "#696969",
+    marginLeft: 30,
+    marginRight: 30,
   },
   star: {
     width: 40,
@@ -211,3 +208,5 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
   },
 });
+
+export default RateJourney;
