@@ -40,7 +40,7 @@ const BookingPayment = ({ navigation }) => {
         >
           <Icon name="menu" size={30} color="#ffffff" />
         </TouchableOpacity>
-        <Text style={styles.headerText}> Make Payment </Text>
+        <Text style={styles.headerText}> Place a Booking </Text>
       </View>
 
       <View style={{ flex: 1 }}>

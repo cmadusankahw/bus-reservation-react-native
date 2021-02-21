@@ -14,10 +14,10 @@ const BookingStackNavigator = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="SeatBooking" component={SeatBooking} />
       <Stack.Screen name="Bookings" component={Bookings} />
       <Stack.Screen name="BookingInfo" component={BookingInfo} />
       <Stack.Screen name="BookingPayment" component={BookingPayment} />
+      <Stack.Screen name="SeatBooking" component={SeatBooking} />
     </Stack.Navigator>
   );
 };
