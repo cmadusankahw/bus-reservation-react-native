@@ -1,8 +1,6 @@
 import * as React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Icon } from "react-native-elements";
-
-import ProfileScreen from "../views/Profile";
 import CustomSidebarMenu from "./CustomSidebarMenu";
 import BottomNavigator from "./BottomTabNavigator";
 import LoyalityPoints from "../views/LoyalityPoints";
@@ -10,6 +8,7 @@ import Bookings from "../views/Bookings";
 import Cancellation from "../views/Cancellation";
 import TimeTable from "../views/TimeTable";
 import RateJourney from "../views/RateJourney";
+import ProfileStackNavigator from "./ProfileStackNavigator";
 
 const Drawer = createDrawerNavigator();
 
@@ -64,7 +63,7 @@ const DrawerScreen = ({ navigation }) => (
 
       <Drawer.Screen
         name="Profile"
-        component={ProfileScreen}
+        component={ProfileStackNavigator}
         options={{
           drawerIcon: ({ focused, size }) => <Icon name="face" />,
         }}

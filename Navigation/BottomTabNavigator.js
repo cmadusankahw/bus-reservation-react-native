@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Profile from "../views/Profile";
-import home from "../views/Home";
+import ProfileStackNavigator from "../Navigation/ProfileStackNavigator";
+import HomeStackNavigator from "../Navigation/HomeStackNavigator";
 import { Icon } from "react-native-elements";
 import TimeTable from "../views/TimeTable";
 import BookingStackNavigator from "./BookingStackNavigator";
@@ -34,10 +34,10 @@ const BottomNavigator = () => {
         inactiveTintColor: "gray",
       }}
     >
-      <Tab.Screen name="Home" component={home} />
+      <Tab.Screen name="Home" component={HomeStackNavigator} />
       <Tab.Screen name="Time Table" component={TimeTable} />
       <Tab.Screen name="Bookings" component={BookingStackNavigator} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="Profile" component={ProfileStackNavigator} />
     </Tab.Navigator>
   );
 };
